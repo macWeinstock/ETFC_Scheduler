@@ -4,19 +4,20 @@
 
 import sys
 
+#function to rotate the teams for matchups
 def rotatePol(teamList):
 	last = teamList.pop()
 	return [last] + teamList
 
+#function to print the week matchups
 def createWeek(teamList):
-	
 	for i in range(len(teamList) // 2):
 		print(f"Team {teamList[i]} vs. Team {teamList[-1 * (i + 1)]}")
 
 	return teamList[i+1]
 
+#Print teams and handle last team rotation
 def fillSched(numTeams):
-
 	teamList = [x+1 for x in range(numTeams)]
 
 	lastOpp = "Bye"
@@ -29,6 +30,7 @@ def fillSched(numTeams):
 		print(f"Team {lastTeam} vs. Team {lastOpp}")
 		teamList = rotatePol(teamList)
 
+#Driver function and get user input
 def main():
 	print("Enter number of teams: ")
 	numTeams = int(sys.stdin.readline())
